@@ -1,0 +1,37 @@
+---
+title: "Analysis of Tooth Growth"
+author: "Frank Jung"
+output:
+  pdf_document:
+    toc: yes
+    fig_crop: no
+    keep_tex: yes
+    latex_engine: xelatex
+    number_sections: yes
+graphics: yes
+classoption: legalpaper
+---
+
+## Synopsis
+
+In this project we will analyse the 
+[ToothGrowth](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html)
+dataset to compare tooth growth by supplement and dose. The question we want to 
+answer is: Does the delivery method of Vitamin C supplements effect tooth
+growth?
+
+```{r setoptions, echo=FALSE, message=FALSE, warning=FALSE}
+require(knitr, quietly = TRUE)
+require(ggplot2, quietly = TRUE)
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, cache.path = "cache/", fig.path = "figure/")
+```
+
+## Exploratory Analysis
+
+```{r loaddata, echo=FALSE, message=FALSE, warning=FALSE}
+summary(ToothGrowth)
+```
+
+## Analysis
+
+## Significance
