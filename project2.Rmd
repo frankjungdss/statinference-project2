@@ -1,37 +1,108 @@
 ---
 title: "Analysis of Tooth Growth"
 author: "Frank Jung"
+graphics: yes
 output:
   pdf_document:
-    toc: yes
     fig_crop: no
+    fig_height: 4.5
     keep_tex: yes
     latex_engine: xelatex
     number_sections: yes
-graphics: yes
+    toc: yes
+  html_document:
+    toc: yes
 classoption: legalpaper
 ---
 
-## Synopsis
+# Synopsis
 
 In this project we will analyse the 
 [ToothGrowth](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html)
-dataset to compare tooth growth by supplement and dose. The question we want to 
-answer is: Does the delivery method of Vitamin C supplements effect tooth
-growth?
-
+dataset to compare odontoblast growth by supplement and dosage. The question we 
+want to answer is: Does the delivery method of supplements effect mean 
+[odontoblast](https://en.wikipedia.org/wiki/Odontoblast) growth? i.e. Is there 
+any measurable difference in means of growth between these supplements and
+dosages?
 ```{r setoptions, echo=FALSE, message=FALSE, warning=FALSE}
+require(datasets)
 require(knitr, quietly = TRUE)
 require(ggplot2, quietly = TRUE)
-knitr::opts_chunk$set(echo = FALSE, cache = TRUE, cache.path = "cache/", fig.path = "figure/")
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, cache.path = "cache/", fig.path = "figure/", fig.align="center")
 ```
 
-## Exploratory Analysis
+# Exploratory Analysis
 
-```{r loaddata, echo=FALSE, message=FALSE, warning=FALSE}
-summary(ToothGrowth)
+First, lets explore the data:
+```{r exploredataframe, echo=TRUE, message=FALSE, warning=FALSE}
+# for convenience, record ToothGrowth in data frame, tg
+tg <- data.frame(ToothGrowth)
+tg$dose <- factor(tg$dose)
+str(tg)
+table(tg[tg$supp == "OJ", c("dose")])
+table(tg[tg$supp == "VC", c("dose")])
+range(tg$len)
 ```
 
-## Analysis
+A violin plot by supplement shows us the spread of each dose:
+```{r exploreplot, echo=FALSE, message=FALSE, warning=FALSE}
+levels(tg$supp)[levels(tg$supp) == "OJ"] <- "Orange Juice"
+levels(tg$supp)[levels(tg$supp) == "VC"] <- "Vitamin C"
+ggplot(tg, aes(x = dose, y = len)) +
+    geom_violin() +
+    geom_boxplot(width = 0.2, fill = "purple", alpha = 0.4) +
+    stat_summary(fun.y = mean, geom = "point", colour = "white", shape = 19, size = 2) +
+    facet_grid(supp ~ .) +
+    labs(x = "Dose (milligams)", y = "Odontoblast Length (microns)") +
+    ggtitle("Kernel Probabilty Density of Length by Dosage for each Supplement type")
+    
+```
 
-## Significance
+In summary, the ToothGrowth dataset is small, with:
+
+* 10 length samples per dose (microns)
+* 3 distinct dosage levels (milligrams)
+* 2 supplement types (VC = Vitamin C and OJ = Orange Juice)
+
+The data suggests that there may be observable differences with lower dosages.
+
+# Assumptions
+
+In this analysis we assume that the supplement and variances are independent,
+and the data is assumed to be normally distributed.
+
+# Test Hypothesis
+
+Our null hypothesis is that there is no difference in odontoblast mean lengths
+between supplement types for each dosage. That is: $H_0 : \mu_{oj} = \mu_{vc}$
+and $H_a : \mu_{oj} \ne \mu_{vc}$ is our alternative hypothesis.
+
+For each dose, compare lengths from each supplement. Show just the confidence
+interval and p-value:
+```{r testhypothesis, echo=TRUE, message=FALSE, warning=FALSE}
+by(tg, tg$dose, function (x) t.test(len ~ supp, x)[c("conf.int", "p.value")])
+```
+
+# Conclusion
+
+We are testing the null hypothesis that odontoblast mean lengths are the same,
+regardless of the supplement type: $H_0 : \mu_{oj} = \mu_{vc}$
+
+From the [p values](https://en.wikipedia.org/wiki/P-value) and [confidence
+intervals](https://en.wikipedia.org/wiki/Confidence_interval) we can conclude:
+
+| Dosage (milligrams) | Comparison of lengths between supplements              |
+|:-------------------:|--------------------------------------------------------|
+| 0.5                 | We reject the null hypothesis                          |
+| 1.0                 | We reject the null hypothesis                          |
+| 2.0                 | We fail to reject the null hypothesis                  |
+
+So, it appears that effects on odontoblast mean length diminishes between
+supplement types at higher dosages.
+
+# References
+
+* [ToothGrowth](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html) dataset
+* [Crampton, E. W. (1947) The growth of the odontoblast of the incisor teeth as a criterion of vitamin C intake of the guinea pig. The Journal of Nutrition 33(5): 491<e2><80><93>-504.](http://jn.nutrition.org/content/33/5/491.full.pdf)
+
+$\square$
