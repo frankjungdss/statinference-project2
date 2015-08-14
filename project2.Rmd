@@ -78,7 +78,7 @@ Our null hypothesis is that there is no difference in odontoblast mean lengths
 between supplement types for each dosage. That is: $H_0 : \mu_{oj} = \mu_{vc}$ 
 with an alternative hypothesis: $H_a : \mu_{oj} \ne \mu_{vc}$. To test this we 
 will calculate a 95% confidence interval, using a two-sided T test of
-independent groups, with variances assumed to be un-equal.
+independent groups, with variances assumed to be unequal.
 
 For each dose, compare mean lengths from each supplement. Show just the 95%
 confidence interval and p-value:
@@ -115,4 +115,4 @@ supplement types at higher dosages.
 * [ToothGrowth dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html)
 * [Crampton, E. W. (1947) The growth of the odontoblast of the incisor teeth as a criterion of vitamin C intake of the guinea pig. The Journal of Nutrition 33(5): 491<e2><80><93>-504.](http://jn.nutrition.org/content/33/5/491.full.pdf)
 
-$\square$
+$\hfill \square$
