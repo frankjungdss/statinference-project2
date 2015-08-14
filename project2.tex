@@ -260,11 +260,11 @@ For each dose, compare mean lengths from each supplement. Show just the
 ## [1] 0.9638516
 \end{verbatim}
 
-Note that the mean difference of 0 is not in the supplement dosages of
-0.5 and 1.0 milligrams. In addition, the p-values for these observations
-are much less than 5\%. Compare this to the supplement dosages of 2.0
-milligrams, the mean difference of 0 is in the confidence interval and
-the p-value is above 96\%.
+Note that the confidence interval for supplement dosages of 0.5 and 1.0
+milligrams do not contain 0. In addition, the p-values for these
+observations are much less than 5\%. Compare this to the confidence
+interval for supplement dosages of 2.0 milligrams does contain 0 and the
+p-value is above 96\%.
 
 \section{Conclusion}\label{conclusion}
 
@@ -297,8 +297,8 @@ between supplement types at higher dosages.
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  \href{https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html}{ToothGrowth}
-  dataset
+  \href{https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html}{ToothGrowth
+  dataset}
 \item
   \href{http://jn.nutrition.org/content/33/5/491.full.pdf}{Crampton, E.
   W. (1947) The growth of the odontoblast of the incisor teeth as a

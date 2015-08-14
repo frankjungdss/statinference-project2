@@ -86,10 +86,10 @@ confidence interval and p-value:
 by(tg, tg$dose, function (x) t.test(len ~ supp, x)[c("conf.int", "p.value")])
 ```
 
-Note that the mean difference of 0 is not in the supplement dosages of 0.5 and 
-1.0 milligrams. In addition, the p-values for these observations are much less 
-than 5%. Compare this to the supplement dosages of 2.0 milligrams, the mean
-difference of 0 is in the confidence interval and the p-value is above 96%.
+Note that the confidence interval for supplement dosages of 0.5 and 1.0
+milligrams do not contain 0. In addition, the p-values for these observations
+are much less than 5%. Compare this to the confidence interval for supplement
+dosages of 2.0 milligrams does contain 0 and the p-value is above 96%.
 
 # Conclusion
 
@@ -112,7 +112,7 @@ supplement types at higher dosages.
 
 # References
 
-* [ToothGrowth](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html) dataset
+* [ToothGrowth dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html)
 * [Crampton, E. W. (1947) The growth of the odontoblast of the incisor teeth as a criterion of vitamin C intake of the guinea pig. The Journal of Nutrition 33(5): 491<e2><80><93>-504.](http://jn.nutrition.org/content/33/5/491.full.pdf)
 
 $\square$
