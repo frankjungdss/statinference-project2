@@ -17,11 +17,15 @@ range(tg$len)
 
 # as sample size for each dose is small (10) plot
 library(ggplot2)
+levels(tg$supp)[levels(tg$supp) == "OJ"] <- "Orange Juice"
+levels(tg$supp)[levels(tg$supp) == "VC"] <- "Vitamin C"
 ggplot(tg, aes(x = dose, y = len)) +
     geom_violin() +
     geom_boxplot(width = 0.2, fill = "purple", alpha = 0.4) +
     stat_summary(fun.y = mean, geom = "point", colour = "white", shape = 19, size = 2) +
-    facet_grid(supp ~ .)
+    facet_grid(supp ~ .) +
+    labs(x = "Dose (milligams)", y = "Odontoblast Length (microns)") +
+    ggtitle("Kernel Probabilty Density of Length by Dosage for each Supplement type")
 
 # run associated t-test, see
 # - http://localhost/dokuwiki/doku.php?id=frank:datascience:t_tests

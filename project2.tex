@@ -180,7 +180,7 @@ First, lets explore the data:
 ## [1]  4.2 33.9
 \end{verbatim}
 
-A violin plot by supplement shows us the spread of each dose:
+Below is a violin plot by supplement and dose:
 
 \begin{center}\includegraphics{figure/exploreplot-1} \end{center}
 
@@ -189,7 +189,7 @@ In summary, the ToothGrowth dataset is small, with:
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  10 length samples per dose (microns)
+  10 observations of odontoblast length (microns) for each dose
 \item
   3 distinct dosage levels (milligrams)
 \item
@@ -201,18 +201,27 @@ dosages.
 
 \section{Assumptions}\label{assumptions}
 
-In this analysis we assume that the supplement and variances are
-independent, and the data is assumed to be normally distributed.
+In this analysis we assume that:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  the observations are independent
+\item
+  the data is assumed to be normally distributed
+\end{itemize}
 
 \section{Test Hypothesis}\label{test-hypothesis}
 
 Our null hypothesis is that there is no difference in odontoblast mean
 lengths between supplement types for each dosage. That is:
-\(H_0 : \mu_{oj} = \mu_{vc}\) and \(H_a : \mu_{oj} \ne \mu_{vc}\) is our
-alternative hypothesis.
+\(H_0 : \mu_{oj} = \mu_{vc}\) with an alternative hypothesis:
+\(H_a : \mu_{oj} \ne \mu_{vc}\). To test this we will calculate a 95\%
+confidence interval, using a two-sided T test of independent groups,
+with variances assumed to be un-equal.
 
-For each dose, compare lengths from each supplement. Show just the
-confidence interval and p-value:
+For each dose, compare mean lengths from each supplement. Show just the
+95\% confidence interval and p-value:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -251,10 +260,18 @@ confidence interval and p-value:
 ## [1] 0.9638516
 \end{verbatim}
 
+Note that the mean difference of 0 is not in the supplement dosages of
+0.5 and 1.0 milligrams. In addition, the p-values for these observations
+are much less than 5\%. Compare this to the supplement dosages of 2.0
+milligrams, the mean difference of 0 is in the confidence interval and
+the p-value is above to 96\%.
+
 \section{Conclusion}\label{conclusion}
 
 We are testing the null hypothesis that odontoblast mean lengths are the
-same, regardless of the supplement type: \(H_0 : \mu_{oj} = \mu_{vc}\)
+same, regardless of the supplement type: \(H_0 : \mu_{oj} = \mu_{vc}\).
+The alternative hypothesis is that they are not equal:
+\(H_a : \mu_{oj} \ne \mu_{vc}\).
 
 From the \href{https://en.wikipedia.org/wiki/P-value}{p values} and
 \href{https://en.wikipedia.org/wiki/Confidence_interval}{confidence
@@ -262,7 +279,7 @@ intervals} we can conclude:
 
 \begin{longtable}[c]{@{}cl@{}}
 \toprule
-Dosage (milligrams) & Comparison of lengths between
+Dosage (milligrams) & Comparison of mean lengths between
 supplements\tabularnewline
 \midrule
 \endhead
