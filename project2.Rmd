@@ -89,13 +89,14 @@ by(tg, tg$dose, function (x) t.test(len ~ supp, x)[c("conf.int", "p.value")])
 Note that the mean difference of 0 is not in the supplement dosages of 0.5 and 
 1.0 milligrams. In addition, the p-values for these observations are much less 
 than 5%. Compare this to the supplement dosages of 2.0 milligrams, the mean
-difference of 0 is in the confidence interval and the p-value is above to 96%.
+difference of 0 is in the confidence interval and the p-value is above 96%.
 
 # Conclusion
 
 We are testing the null hypothesis that odontoblast mean lengths are the same, 
-regardless of the supplement type: $H_0 : \mu_{oj} = \mu_{vc}$. The alternative
-hypothesis is that they are not equal: $H_a : \mu_{oj} \ne \mu_{vc}$.
+regardless of the supplement type or dosage: $H_0 : \mu_{oj} = \mu_{vc}$. The
+alternative hypothesis is that they are not equal: $H_a : \mu_{oj} \ne
+\mu_{vc}$.
 
 From the [p values](https://en.wikipedia.org/wiki/P-value) and [confidence
 intervals](https://en.wikipedia.org/wiki/Confidence_interval) we can conclude:
