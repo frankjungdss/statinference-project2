@@ -88,9 +88,8 @@ by(tg, tg$dose, function (x) t.test(len ~ supp, x)[c("conf.int", "p.value")])
 
 Note that the confidence interval for supplement dosages of 0.5 and 1.0 
 milligrams does not contain 0. In addition, the p-values for these observations 
-are much less than 2.5% (two-sided). Compare this to the confidence interval for
-supplement dosages of 2.0 milligrams, which does contain 0 and the p-value is
-above 96%.
+are much less than 5%. Compare this to the confidence interval for supplement
+dosages of 2.0 milligrams, which does contain 0 and the p-value is above 96%.
 
 # Conclusion
 
