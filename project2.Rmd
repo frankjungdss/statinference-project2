@@ -41,7 +41,7 @@ tg$dose <- factor(tg$dose)
 str(tg)
 table(tg[tg$supp == "OJ", c("dose")])
 table(tg[tg$supp == "VC", c("dose")])
-range(tg$len)
+cat(range(tg$len))
 ```
 
 Below is a violin plot by supplement and dose:
