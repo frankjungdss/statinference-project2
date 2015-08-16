@@ -70,7 +70,7 @@ The data suggests that there may be observable differences with lower dosages.
 In this analysis we assume that:
 
 * the observations are independent ([different groups of guinea-pigs](http://jn.nutrition.org/content/33/5/491.full.pdf))
-* the data is assumed to be normally distributed ([likely as this is a biological measurement](https://en.wikipedia.org/wiki/Normal_distribution#/Approximate_normality))
+* the data is assumed to be normally distributed ([likely, as this is a biological measurement](https://en.wikipedia.org/wiki/Normal_distribution#/Approximate_normality))
 
 # Test Hypothesis
 
@@ -80,10 +80,11 @@ with an alternative hypothesis: $H_a : \mu_{oj} \ne \mu_{vc}$. To test this we
 will calculate a 95% confidence interval, using a two-sided T test of
 independent groups, with variances assumed to be unequal.
 
-For each dose, compare mean lengths from each supplement. Show just the 95%
+For each dose, compare mean lengths from each supplement. Report the 95%
 confidence interval and p-value:
 ```{r testhypothesis, echo=TRUE, message=FALSE, warning=FALSE}
-by(tg, tg$dose, function (x) t.test(len ~ supp, x)[c("conf.int", "p.value")])
+by(tg, tg$dose,
+   function (x) t.test(len ~ supp, x, paired = F, var.equal = F, alternative = "t"))
 ```
 
 Note that the confidence interval for supplement dosages of 0.5 and 1.0 

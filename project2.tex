@@ -211,7 +211,7 @@ In this analysis we assume that:
   groups of guinea-pigs})
 \item
   the data is assumed to be normally distributed
-  (\href{https://en.wikipedia.org/wiki/Normal_distribution\#/Approximate_normality}{likely
+  (\href{https://en.wikipedia.org/wiki/Normal_distribution\#/Approximate_normality}{likely,
   as this is a biological measurement})
 \end{itemize}
 
@@ -224,44 +224,57 @@ lengths between supplement types for each dosage. That is:
 confidence interval, using a two-sided T test of independent groups,
 with variances assumed to be unequal.
 
-For each dose, compare mean lengths from each supplement. Show just the
+For each dose, compare mean lengths from each supplement. Report the
 95\% confidence interval and p-value:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{by}\NormalTok{(tg, tg$dose, function (x) }\KeywordTok{t.test}\NormalTok{(len ~}\StringTok{ }\NormalTok{supp, x)[}\KeywordTok{c}\NormalTok{(}\StringTok{"conf.int"}\NormalTok{, }\StringTok{"p.value"}\NormalTok{)])}
+\KeywordTok{by}\NormalTok{(tg, tg$dose,}
+   \NormalTok{function (x) }\KeywordTok{t.test}\NormalTok{(len ~}\StringTok{ }\NormalTok{supp, x, }\DataTypeTok{paired =} \NormalTok{F, }\DataTypeTok{var.equal =} \NormalTok{F, }\DataTypeTok{alternative =} \StringTok{"t"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## tg$dose: 0.5
-## $conf.int
-## [1] 1.719057 8.780943
-## attr(,"conf.level")
-## [1] 0.95
 ## 
-## $p.value
-## [1] 0.006358607
+##  Welch Two Sample t-test
+## 
+## data:  len by supp
+## t = 3.1697, df = 14.969, p-value = 0.006359
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1.719057 8.780943
+## sample estimates:
+## mean in group Orange Juice (OJ)    mean in group Vitamin C (VC) 
+##                           13.23                            7.98 
 ## 
 ## -------------------------------------------------------- 
 ## tg$dose: 1
-## $conf.int
-## [1] 2.802148 9.057852
-## attr(,"conf.level")
-## [1] 0.95
 ## 
-## $p.value
-## [1] 0.001038376
+##  Welch Two Sample t-test
+## 
+## data:  len by supp
+## t = 4.0328, df = 15.358, p-value = 0.001038
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.802148 9.057852
+## sample estimates:
+## mean in group Orange Juice (OJ)    mean in group Vitamin C (VC) 
+##                           22.70                           16.77 
 ## 
 ## -------------------------------------------------------- 
 ## tg$dose: 2
-## $conf.int
-## [1] -3.79807  3.63807
-## attr(,"conf.level")
-## [1] 0.95
 ## 
-## $p.value
-## [1] 0.9638516
+##  Welch Two Sample t-test
+## 
+## data:  len by supp
+## t = -0.046136, df = 14.04, p-value = 0.9639
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -3.79807  3.63807
+## sample estimates:
+## mean in group Orange Juice (OJ)    mean in group Vitamin C (VC) 
+##                           26.06                           26.14
 \end{verbatim}
 
 Note that the confidence interval for supplement dosages of 0.5 and 1.0
