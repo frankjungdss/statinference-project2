@@ -33,9 +33,9 @@ knitr::opts_chunk$set(echo = FALSE, cache = TRUE, cache.path = "cache/", fig.pat
 
 # Exploratory Analysis
 
-First, lets explore the data:
+First, let us explore the data:
 ```{r exploredataframe, echo=TRUE, message=FALSE, warning=FALSE}
-# for convenience, record ToothGrowth in data frame, tg
+# for convenience save ToothGrowth into data frame tg
 tg <- data.frame(ToothGrowth)
 tg$dose <- factor(tg$dose)
 str(tg)
@@ -53,8 +53,8 @@ ggplot(tg, aes(x = dose, y = len)) +
     geom_boxplot(width = 0.2, fill = "purple", alpha = 0.4) +
     stat_summary(fun.y = mean, geom = "point", colour = "white", shape = 19, size = 2) +
     facet_grid(supp ~ .) +
-    labs(x = "Dose (milligams)", y = "Odontoblast Length (microns)") +
-    ggtitle("Kernel Probabilty Density of Length by Dosage for each Supplement type")
+    labs(x = "Dose (milligrams)", y = "Odontoblast Length (microns)") +
+    ggtitle("Kernel Probability Density of Length by Dosage")
 ```
 
 In summary, the ToothGrowth dataset is small, with:
