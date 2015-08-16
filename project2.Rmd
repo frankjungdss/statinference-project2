@@ -69,8 +69,8 @@ The data suggests that there may be observable differences with lower dosages.
 
 In this analysis we assume that:
 
-* the observations are independent
-* the data is assumed to be normally distributed
+* the observations are independent ([different groups of guinea-pigs](http://jn.nutrition.org/content/33/5/491.full.pdf))
+* the data is assumed to be normally distributed ([likely as this is a biological measurement](https://en.wikipedia.org/wiki/Normal_distribution#/Approximate_normality))
 
 # Test Hypothesis
 
@@ -112,7 +112,9 @@ supplement types at higher dosages.
 
 # References
 
+* [Crampton, E. W. (1947) The growth of the odontoblast of the incisor teeth as a criterion of vitamin C intake of the guinea pig. The Journal of Nutrition.](http://jn.nutrition.org/content/33/5/491.full.pdf)
+* [Normal Distribution. Wikipedia](https://en.wikipedia.org/wiki/Normal_distribution)
+* [Odontoblast. Wikipedia](https://en.wikipedia.org/wiki/Odontoblast)
 * [ToothGrowth dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html)
-* [Crampton, E. W. (1947) The growth of the odontoblast of the incisor teeth as a criterion of vitamin C intake of the guinea pig. The Journal of Nutrition 33(5): 491<e2><80><93>-504.](http://jn.nutrition.org/content/33/5/491.full.pdf)
 
 $\hfill \square$
