@@ -118,5 +118,6 @@ supplement types at higher dosages.
 * [Normal Distribution. Wikipedia](https://en.wikipedia.org/wiki/Normal_distribution)
 * [Odontoblast. Wikipedia](https://en.wikipedia.org/wiki/Odontoblast)
 * [ToothGrowth dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html)
+* [GitHub repository containing project code](https://github.com/frankhjung/statinference-project2)
 
 $\hfill \square$
