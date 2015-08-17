@@ -6,7 +6,6 @@ output:
   pdf_document:
     fig_crop: no
     fig_height: 4.5
-    keep_tex: yes
     latex_engine: xelatex
     number_sections: yes
     toc: yes
@@ -30,6 +29,8 @@ require(knitr, quietly = TRUE)
 require(ggplot2, quietly = TRUE)
 knitr::opts_chunk$set(echo = FALSE, cache = TRUE, cache.path = "cache/", fig.path = "figure/", fig.align="center")
 ```
+
+All code for this project is available on [GitHub](https://github.com) from [here](https://github.com/frankhjung/statinference-project2).
 
 # Exploratory Analysis
 
