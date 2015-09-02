@@ -28,7 +28,7 @@ require(ggplot2, quietly = TRUE)
 knitr::opts_chunk$set(echo = FALSE, cache = TRUE, cache.path = "cache/", fig.path = "figure/", fig.align="center")
 ```
 
-All code for this project is available on [GitHub](https://github.com) from [here](https://github.com/frankhjung/statinference-project2).
+All code for this project is available on [GitHub](https://github.com) from [here](https://github.com/frankjungdss/statinference-project2).
 
 # Exploratory Analysis
 
@@ -116,6 +116,6 @@ supplement types at higher dosages.
 * [Normal Distribution. Wikipedia](https://en.wikipedia.org/wiki/Normal_distribution)
 * [Odontoblast. Wikipedia](https://en.wikipedia.org/wiki/Odontoblast)
 * [ToothGrowth dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html)
-* [GitHub repository containing project code](https://github.com/frankhjung/statinference-project2)
+* [GitHub repository containing project code](https://github.com/frankjungdss/statinference-project2)
 
 $\hfill \square$
